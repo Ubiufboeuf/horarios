@@ -10,7 +10,7 @@ Todavía faltan unas cosas por agregar:
 
 [ ] - Agregar responsive <br>
 [ ] - Añadir y eliminar materias <br>
-[ ] - Modificar materias
+[ ] - Modificar materias <br>
 [ ] - Modificar horas <br>
 [ ] - Mover recreos <br>
 
