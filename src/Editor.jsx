@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { useMateriasStore } from './useMateriasStore'
 import { useEffect } from 'react'
+import { getMaterias, saveMaterias } from './client'
 
 const opciones = [
   '(vacío)',
@@ -35,9 +36,13 @@ export function Editor () {
   const headerRef = useRef()
 
   useEffect(() => {
-    const materias = window.localStorage.getItem('materias')
-    if (!materias) return
-    updateMateriasObject(JSON.parse(materias))
+    let materias
+    getMaterias()
+      .then(data => {
+        console.log('data:', data)
+        const materias = data
+        updateMateriasObject(materias)
+      })
   }, [])
 
   function guardarHorarios () {
@@ -55,9 +60,8 @@ export function Editor () {
 
       json[numeroDeDia].horas[indiceDeOpcion] = opcion
     })
-    console.log(json)
     updateMateriasObject(json)
-    window.localStorage.setItem('materias', JSON.stringify(json))
+    saveMaterias(JSON.stringify(json))
   }
 
   function getDefaultValue (idx) {
@@ -81,7 +85,6 @@ export function Editor () {
       $select.value = json[numeroDeDia].horas[indiceDeOpcion]
     })
 
-    console.log(dia, json[numeroDeDia].horas)
   }
 
   function changeDay (event) {

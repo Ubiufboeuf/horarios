@@ -49,10 +49,11 @@ export function getFinalObject (ob) {
         // continue
         horas[h] = { hora: 'recreo' }
       } else if (hora === '(vacío)') {
-        console.log(dia.dia, h, 'vacío')
         horas[h] = { hora: '' }
       } else {
-        if (prev === hora) {
+        if (prev === hora && horas[h-2]?.hora === hora) {
+          horas[h-2] = { hora, span: 3 }
+        } else if (prev === hora) {
           horas[h-1] = { hora, span: 2 }
         } else {
           horas[h] = { hora }
@@ -60,6 +61,7 @@ export function getFinalObject (ob) {
       }
       prev = hora
     }
+    prev = ''
     finalObject[d] = { dia: dia.dia, horas }
   }
   return finalObject
@@ -77,7 +79,7 @@ export function Preview () {
   return (
     <section
       id='preview'
-      className='h-full w-full max-w-full max-h-full flex flex-col gap-4 items-center justify-center p-4 overflow-auto bg-transparent'
+      className='h-full w-full max-w-full max-h-full min-w-[700px] min-h-fit flex flex-col gap-4 items-center justify-center p-4 overflow-auto bg-transparent'
     >
       <div className='w-full flex justify-start items-center h-fit'>
         <button
@@ -147,7 +149,7 @@ export function Preview () {
                     '--color': colors[hora.hora],
                     height: '100%'
                   }}
-                  className={`${hora.hora === '' ? 'void' : ''} h-full w-full text-xs rounded-lg font-semibold hover:bg-[var(--color)]`}
+                  className={`${hora.hora === '' ? 'void' : ''} h-full w-full text-xs rounded-lg font-semibold hover:bg-[var(--color)] text-balance`}
                 >
                   {hora.hora}
                 </span>

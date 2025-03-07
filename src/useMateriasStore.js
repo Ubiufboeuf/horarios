@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-const baseObject = [
+export const baseObject = [
   {
     dia: 'Lunes',
     horas: Array(11).fill('(vacío)')
