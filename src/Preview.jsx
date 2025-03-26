@@ -149,7 +149,7 @@ export function Preview () {
                     '--color': colors[hora.hora],
                     height: '100%'
                   }}
-                  className={`${hora.hora === '' ? 'void' : ''} h-full w-full text-xs rounded-lg font-semibold hover:bg-[var(--color)] text-balance`}
+                  className={`${hora.hora === '' ? 'void' : ''} h-full w-full px-2 text-xs rounded-lg font-semibold hover:bg-[var(--color)] text-balance`}
                 >
                   {hora.hora}
                 </span>
