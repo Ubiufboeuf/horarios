@@ -23,3 +23,4 @@ export async function getMaterias () {
   const horarios = (rows[0].materias) ? JSON.parse(rows[0].materias) : baseObject
   return horarios
 }
+

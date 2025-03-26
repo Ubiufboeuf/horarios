@@ -27,3 +27,4 @@ export const useMateriasStore = create((set) => ({
   materiasObject: baseObject,
   updateMateriasObject: (newObj) => set({ materiasObject: newObj })
 }))
+

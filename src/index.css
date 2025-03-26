@@ -1,7 +1,11 @@
 @import "tailwindcss";
+@font-face {
+  font-family: Inter;
+  src: url('/Inter.ttf');
+}
 
 :root {
-  font-family: system-ui;
+  font-family: Inter, system-ui;
   line-height: 1.5;
   font-weight: 400;
 
