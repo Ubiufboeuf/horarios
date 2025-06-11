@@ -3,7 +3,7 @@ import { useMateriasStore } from './useMateriasStore'
 import { useRef } from 'react'
 
 const horas = [
-  { inicio: '12:45', fin: '13:45', type: '' },
+  { inicio: '12:45', fin: '13:25', type: '' },
   { inicio: '13:25', fin: '14:05', type: '' },
   { inicio: '14:05', fin: '14:10', type: 'recreo' },
   { inicio: '14:10', fin: '14:55', type: '' },
